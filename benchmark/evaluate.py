@@ -22,7 +22,7 @@ def preprocess_data():
     # Read, process, and save ratings data
     ratings_base = pd.read_csv("data/ml-100k/u1.base", sep='\t', names=['user_id', 'item_id', 'rating', 'timestamp'])
     del ratings_base['timestamp']
-    ratings_base.to_csv("benchmark/data/ratings-base.csv", index=False)
+    ratings_base.to_csv("benchmark/data/ratings.csv", index=False)
     ratings_base = pd.read_csv("data/ml-100k/u1.test", sep='\t', names=['user_id', 'item_id', 'rating', 'timestamp'])
     del ratings_base['timestamp']
     ratings_base.to_csv("benchmark/data/ratings-test.csv", index=False)
@@ -124,7 +124,7 @@ model.eval()
 
 users = pd.read_csv("benchmark/data/users.csv")
 items = pd.read_csv("benchmark/data/items.csv")
-ratings = pd.read_csv("benchmark/data/ratings-base.csv")
+ratings = pd.read_csv("benchmark/data/ratings.csv")
 test_ratings = pd.read_csv("benchmark/data/ratings-test.csv")
 genres = pd.read_csv("benchmark/data/u.genre", delimiter="|", names=["name","index"])
 
